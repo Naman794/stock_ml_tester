@@ -1,0 +1,7 @@
+ticker_id,company_name,price,percent_change,net_change,bid,ask,high,low,open,low_circuit_limit,up_circuit_limit,volume,date,time,close,bid_size,ask_size,exchange_type,lot_size,overall_rating,short_term_trends,long_term_trends,year_low,year_high,ric
+S0003044,Coal India,414.20,2.86,11.50,414.20,414.30,417.25,404,405.50,362.45,442.95,11252512,2025-05-20,07:06:59,402.70,320,1924,NSI,1,Moderately Bullish,Bullish,Moderately Bullish,349.25,543.55,COAL.NS
+S0003030,Oil And Natural Gas Corp,250.80,1.71,4.22,250.75,250.80,252.70,246.79,246.79,221.92,271.23,7872446,2025-05-20,07:06:56,246.58,256,281,NSI,1,Moderately Bullish,Bullish,Moderately Bullish,205,345,ONGC.NS
+S0003072,Hindalco Industries,665.65,1.11,7.30,665.65,665.75,671,661.75,668,592.55,724.15,3310859,2025-05-20,07:06:58,658.35,1005,326,NSI,1,Bullish,Bullish,Bullish,546.45,772.65,HALC.NS
+S0005111,Eternal,230.12,-3.32,-7.91,230.08,230.12,240,229.61,240,214.22,261.83,22583008,2025-05-20,07:06:59,238.03,700,209,NSI,1,Bearish,Bearish,Bearish,146.30,304.70,ETEA.NS
+S0003049,Cipla,1465.90,-1.72,-25.70,1465.90,1466,1497.80,1465.10,1495.40,1342.50,1640.70,1704435,2025-05-20,07:06:54,1491.60,92,39,NSI,1,Bearish,Bearish,Bearish,1335,1702.05,CIPL.NS
+S0003088,Hero Motocorp,4314.10,-1.68,-73.60,4314.60,4315,4437.20,4292.20,4409,3949,4826.40,306406,2025-05-20,07:06:58,4387.70,1,505,NSI,1,Moderately Bullish,Bullish,Moderately Bullish,3344,6246.25,HROM.NS
