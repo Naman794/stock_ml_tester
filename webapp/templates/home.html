@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Trending Stocks - Stock Insight</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>📈 Trending Indian Stocks</h1>
+
+        {% if trending %}
+            <table>
+                <thead>
+                    <tr>
+                        {% for key in trending[0].keys() %}
+                            <th>{{ key.capitalize().replace('_', ' ') }}</th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for stock in trending %}
+                        <tr>
+                            {% for value in stock.values() %}
+                                <td>{{ value }}</td>
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No trending data available.</p>
+        {% endif %}
+
+        <div style="margin-top: 30px; text-align: center;">
+            <a href="/prediction" class="button">🔮 Go to Prediction Page</a>
+        </div>
+    </div>
+</body>
+</html>

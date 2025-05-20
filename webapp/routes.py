@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, request
 from analysis.ml_models import predict_next_close, train_model
 import pandas as pd
 import os
@@ -6,6 +6,18 @@ import matplotlib.pyplot as plt
 from sklearn.metrics import r2_score
 
 main = Blueprint("main", __name__)
+
+@main.route("/")
+def home():
+    trending = []
+    try:
+        df = pd.read_csv("data/trending_stocks.csv")
+        trending = df.head(10).to_dict(orient="records")  # Top 10 trending stocks
+    except Exception as e:
+        print("Error loading trending stocks:", e)
+
+    return render_template("home.html", trending=trending)
+
 
 @main.route("/prediction")
 def show_predictions():
@@ -29,8 +41,8 @@ def show_predictions():
             train_model(stock)
             y_pred = [predict_next_close(stock)] * len(y_true)
             r2 = round(r2_score(y_true, y_pred), 2)
-        except:
-            pass
+        except Exception as e:
+            print(f"Error evaluating {stock}: {e}")
 
         # Plot
         try:
@@ -46,8 +58,8 @@ def show_predictions():
             plt.tight_layout()
             plt.savefig(f"webapp/static/{stock}_trend.png")
             plt.close()
-        except:
-            pass
+        except Exception as e:
+            print(f"Error plotting {stock}: {e}")
 
         predictions.append({
             "stock": stock,
@@ -58,6 +70,7 @@ def show_predictions():
 
     return render_template("prediction.html", predictions=predictions)
 
+
 @main.route("/logs")
 def view_logs():
     try:
@@ -65,7 +78,8 @@ def view_logs():
         df["timestamp"] = pd.to_datetime(df["timestamp"])
         df = df.sort_values(by="timestamp", ascending=False)
         records = df.to_dict(orient="records")
-    except:
+    except Exception as e:
+        print("Error loading logs:", e)
         records = []
 
     return render_template("logs.html", logs=records)
