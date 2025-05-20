@@ -12,6 +12,7 @@ from fetch.csv_writer import save_to_csv
 from analysis.ml_models import train_model, predict_next_close
 from filters.fetch_all_data import TOP_10_STOCKS
 
+
 STOCKS = TOP_10_STOCKS
 
 def run_all_models():
@@ -54,7 +55,7 @@ def run_webapp():
 
 if __name__ == "__main__":
     print("🚀 Launching Stock Prediction Engine + Dashboard...")
-    fetch_all_data()
+    
     start_scheduler()
     # Thread 1: Run pipeline
     pipeline_thread = threading.Thread(target=run_all_pipelines)

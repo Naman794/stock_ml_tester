@@ -89,6 +89,4 @@ def fetch_all_data():
 
     print("\n✅ All data fetched and stored in /data/ folder.\n")
 
-# Run manually
-if __name__ == "__main__":
-    fetch_all_data()
+

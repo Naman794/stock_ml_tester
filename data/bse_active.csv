@@ -1,11 +1,11 @@
 ticker,company,price,percent_change,net_change,bid,ask,high,low,open,low_circuit_limit,up_circuit_limit,volume,close,overall_rating,short_term_trend,long_term_trend,52_week_low,52_week_high
-BAJE.BO,Bharat Electronics,366.45,0.8,2.9,366.35,366.55,369.8,358.7,369.05,327.2,399.9,2444882,363.55,Bullish,Bullish,Bullish,230.0,373.5
-ASOK.BO,Ashok Leyland,243.15,0.72,1.75,243.15,243.35,249.65,242.55,245.0,217.3,265.5,1379961,241.4,Bullish,Bullish,Bullish,190.4,264.7
-TISC.BO,Tata Steel,158.95,0.92,1.45,158.9,159.0,162.0,158.05,158.05,141.75,173.25,1330227,157.5,Bullish,Bullish,Bullish,122.6,184.6
-DLF.BO,Dlf,761.45,3.26,24.05,761.2,761.7,783.0,743.0,752.45,663.7,811.1,1176299,737.4,Moderately Bullish,Bullish,Moderately Bullish,601.2,928.7
-ONGC.BO,Oil And Natural Gas Corp,249.9,1.34,3.3,249.8,249.95,252.75,246.75,247.8,221.95,271.25,1027632,246.6,Moderately Bullish,Bullish,Moderately Bullish,205.0,344.6
-COAL.BO,Coal India,413.05,2.52,10.15,413.05,413.3,417.25,404.45,405.0,362.65,443.15,945813,402.9,Moderately Bullish,Bullish,Moderately Bullish,349.2,544.7
-ITC.BO,Itc,437.25,0.49,2.15,437.15,437.35,440.85,435.8,435.8,391.6,478.6,511975,435.1,Moderately Bullish,Bullish,Moderately Bullish,380.43,498.94
-TAMO.BO,Tata Motors,724.6,-0.63,-4.6,724.5,724.8,737.5,724.6,731.5,656.3,802.1,402243,729.2,Moderately Bullish,Bullish,Moderately Bullish,542.55,1179.05
-PGRD.BO,Power Grid Corporation Of India,299.8,-1.41,-4.3,299.8,300.0,305.15,298.5,304.6,273.7,334.5,394477,304.1,Neutral,Bearish,Moderately Bullish,247.5,366.2
-GAIL.BO,Gail India,192.5,1.61,3.05,192.2,192.35,194.0,189.0,190.15,170.55,208.35,362383,189.45,Moderately Bullish,Bullish,Moderately Bullish,150.6,246.35
+BAJE.BO,Bharat Electronics,368.95,1.49,5.4,368.95,369.0,370.8,358.7,369.05,327.2,399.9,3110575,363.55,Bullish,Bullish,Bullish,230.0,373.5
+TISC.BO,Tata Steel,159.5,1.27,2.0,159.35,159.45,162.0,158.05,158.05,141.75,173.25,1437591,157.5,Bullish,Bullish,Bullish,122.6,184.6
+ASOK.BO,Ashok Leyland,243.5,0.87,2.1,243.35,243.6,249.65,242.55,245.0,217.3,265.5,1428119,241.4,Bullish,Bullish,Bullish,190.4,264.7
+DLF.BO,Dlf,755.6,2.47,18.2,755.2,755.6,783.0,743.0,752.45,663.7,811.1,1222558,737.4,Moderately Bullish,Bullish,Moderately Bullish,601.2,928.7
+ONGC.BO,Oil And Natural Gas Corp,250.05,1.4,3.45,250.05,250.15,252.75,246.75,247.8,221.95,271.25,1109753,246.6,Moderately Bullish,Bullish,Moderately Bullish,205.0,344.6
+COAL.BO,Coal India,413.4,2.61,10.5,413.25,413.4,417.25,404.45,405.0,362.65,443.15,1033280,402.9,Moderately Bullish,Bullish,Moderately Bullish,349.2,544.7
+ITC.BO,Itc,435.1,0.0,0.0,434.85,435.1,440.85,434.05,435.8,391.6,478.6,672098,435.1,Moderately Bullish,Bullish,Moderately Bullish,380.43,498.94
+TAMO.BO,Tata Motors,723.0,-0.85,-6.2,722.75,723.0,737.5,721.4,731.5,656.3,802.1,490756,729.2,Moderately Bullish,Bullish,Moderately Bullish,542.55,1179.05
+PGRD.BO,Power Grid Corporation Of India,299.6,-1.48,-4.5,299.6,299.75,305.15,298.5,304.6,273.7,334.5,477480,304.1,Neutral,Bearish,Moderately Bullish,247.5,366.2
+GAIL.BO,Gail India,192.35,1.53,2.9,192.35,192.45,194.0,189.0,190.15,170.55,208.35,432705,189.45,Moderately Bullish,Bullish,Moderately Bullish,150.6,246.35
