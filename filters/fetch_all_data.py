@@ -81,7 +81,7 @@ def fetch_all_data():
         fetch_and_save("/statement", f"statement_quarter_{stock}.csv", {"stock_name": stock, "stats": "quarter_results"})
         fetch_and_save("/statement", f"statement_yoy_{stock}.csv", {"stock_name": stock, "stats": "yoy_results"})
         fetch_and_save("/corporate_actions", f"corporate_actions_{stock}.csv", {"stock_name": stock})
-        fetch_and_save("/historical_data", f"historical_{stock}.csv", {"stock_name": stock, "period": "6m", "filters": "price"})
+        fetch_and_save("/historical_data", f"historical_{stock}.csv", {"stock_name": stock, "period": "max", "filters": "default"})
         fetch_and_save("/stock_target_price", f"target_price_{stock}.csv", {"stock_id": stock})
         fetch_and_save("/recent_announcements", f"recent_announcements_{stock}.csv", {"stock_name": stock})
         fetch_and_save("/stock", f"stock_details_{stock}.csv", {"stock_name" : stock })

@@ -7,10 +7,10 @@ from filters.fetch_all_data import fetch_all_data
 from analysis.ml_models import train_model, predict_next_close
 from scheduler import start_scheduler
 from webapp.app import create_app
-from fetch.api_manager import fetch_historical
 from fetch.csv_writer import save_to_csv
 from analysis.ml_models import train_model, predict_next_close
 from filters.fetch_all_data import TOP_10_STOCKS
+from utils.data_loader import ensure_data_available, load_historical_data
 
 
 STOCKS = TOP_10_STOCKS
@@ -29,7 +29,7 @@ def ensure_data_folder():
 def run_pipeline_for_stock(stock_name):
     print(f"\n📊 Running pipeline for: {stock_name}")
     try:
-        response = fetch_historical(stock_name, period="6m")
+        response = load_historical_data(stock_name, period="6m")
         data = response.get("data", [])
         if not data:
             print(f"[⚠️] No historical data for {stock_name}")
