@@ -1,2 +1,2 @@
-API_BASE = "https://stock.indianapi.in"
-API_KEY = "sk-live-clFuutjO0aOpJCQEQMIFzvBLDHZJHyhcZ8ZvzVM9"
+API_BASE = "llllllllllI"
+API_KEY = "sYYYYYYYYYYY"
