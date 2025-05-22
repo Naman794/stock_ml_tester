@@ -9,6 +9,8 @@ from filters.fetch_all_data import fetch_and_save
 
 DATA_DIR = "data"
 
+
+
 REQUIRED_FILES = [
     "historical_{stock}.csv",
     "statement_balancesheet_{stock}.csv",
