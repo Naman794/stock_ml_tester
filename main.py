@@ -2,70 +2,38 @@
 
 import os
 import threading
-from time import sleep
-from filters.fetch_all_data import fetch_all_data
 from analysis.ml_models import train_model, predict_next_close
 from scheduler import start_scheduler
+from fetch.api_manager import run_all_scheduled
 from webapp.app import create_app
-from fetch.csv_writer import save_to_csv
-from analysis.ml_models import train_model, predict_next_close
-from filters.fetch_all_data import TOP_10_STOCKS
-from utils.data_loader import ensure_data_available, load_historical_data
+from config import API_BASE, API_KEY
 
+def run_pipeline_from_all_csvs():
+    print("📁 Using all available CSV data from /data/")
+    historical_files = [f for f in os.listdir("data") if f.startswith("historical_") and f.endswith(".csv")]
+    top_stocks = sorted(historical_files)[:10]  # Top 10 alphabetically
 
-STOCKS = TOP_10_STOCKS
+    for file in top_stocks:
+        stock_name = file.replace("historical_", "").replace(".csv", "")
+        print(f"🔍 Preparing features for {stock_name}")
 
-def run_all_models():
-    for stock in ["Infosys", "TCS", "Reliance"]:
-        print(f"🔁 Running ML for {stock}")
-        train_model(stock)
-        prediction = predict_next_close(stock)
-        print(f"📈 {stock} → Tomorrow prediction: ₹{prediction}")
-
-def ensure_data_folder():
-    os.makedirs("data", exist_ok=True)
-    os.makedirs("models", exist_ok=True)
-
-def run_pipeline_for_stock(stock_name):
-    print(f"\n📊 Running pipeline for: {stock_name}")
-    try:
-        response = load_historical_data(stock_name, period="6m")
-        data = response.get("data", [])
-        if not data:
-            print(f"[⚠️] No historical data for {stock_name}")
-            return
-    except Exception as e:
-        print(f"[❌] Failed to fetch historical data: {e}")
-        return
-
-    filename = f"historical_{stock_name.replace(' ', '_')}.csv"
-    save_to_csv(data, filename)
-    train_model(f"data/{filename}")
-    predicted = predict_next_close(f"data/{filename}")
-    print(f"✅ {stock_name} → Predicted tomorrow close: ₹{predicted}")
-
-def run_all_pipelines():
-    ensure_data_folder()
-    for stock in STOCKS:
-        run_pipeline_for_stock(stock)
+        try:
+            train_model(stock_name)  # ML uses all related files internally
+            predicted = predict_next_close(stock_name)
+            print(f"✅ {stock_name} → Predicted Close: ₹{predicted}")
+        except Exception as e:
+            print(f"[❌] Error processing {stock_name}: {e}")
 
 def run_webapp():
     app = create_app()
     app.run(debug=False, port=5000)
 
 if __name__ == "__main__":
-    print("🚀 Launching Stock Prediction Engine + Dashboard...")
-    
-    start_scheduler()
-    # Thread 1: Run pipeline
-    pipeline_thread = threading.Thread(target=run_all_pipelines)
-    pipeline_thread.start()
+    print("🚀 Starting Stock Intelligence Suite")
 
+    start_scheduler()             # Schedule auto-fetch/retrain
+    run_all_scheduled()           # Initial fetch check (throttled)
+    run_pipeline_from_all_csvs()  # Use all data/*.csv files
 
-    # Thread 2: Run Flask app
-    app_thread = threading.Thread(target=run_webapp)
-    app_thread.start()
-
-    # Wait for both to finish (or keep app running)
-    pipeline_thread.join()
-    app_thread.join()
+    # Start Flask dashboard
+    threading.Thread(target=run_webapp).start()
